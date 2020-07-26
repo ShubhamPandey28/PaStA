@@ -23,7 +23,7 @@ count = dict()
 for box in mboxes.mboxes:
     for message_id in tqdm(box.get_ids()):
         mail = mboxes.get_messages(message_id)[0]
-        break
+
         try:
             mail, payload = PatchMail.extract_patch_mail(mail)
 
