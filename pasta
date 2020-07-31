@@ -45,7 +45,7 @@ from bin.pasta_upstream_duration import upstream_duration
 from bin.pasta_upstream_history import pasta_upstream_history
 from bin.pasta_web import web
 from bin.pasta_form_patchwork_relations import form_patchwork_relations
-
+from bin.pasta_predict_maintainers import predict_maintainers
 
 __author__ = 'Ralf Ramsauer'
 __copyright__ = 'Copyright (c) OTH Regensburg, 2016-2017'
@@ -88,6 +88,7 @@ def usage(me, exit_code=errno.EINVAL):
           '  ripup\n'
           '  upstream_history\n'
           '  web\n'
+          '  predict\n'
           '\n'
           'If -c is not provided, PaStA will choose ./config as config file\n'
           '\n'
@@ -184,6 +185,8 @@ def main(argv):
         return upstream_duration(config, argv)
     elif sub == 'web':
         return web(config, argv)
+    elif sub == 'predict':
+        return predict_maintainers(config, argv)
     else:
         print('Unknown command: %s' % sub)
         usage(me)
